@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        Python Fabric - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i>  </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/" />
+        </div>
+        <div class="name">
+            <i>John Doe</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Python-Fabric模块详解"><span class="toc-text">Python Fabric模块详解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是Fabric？"><span class="toc-text">什么是Fabric？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Fabric的安装"><span class="toc-text">Fabric的安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#常用参数"><span class="toc-text">常用参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#常用的API"><span class="toc-text">常用的API</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#fabric全局属性设定"><span class="toc-text">fabric全局属性设定</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#roles"><span class="toc-text">@roles</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#runs-once"><span class="toc-text">@runs_once</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#serial"><span class="toc-text">@serial</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#判断模块："><span class="toc-text">判断模块：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#颜色模块："><span class="toc-text">颜色模块：</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i>  </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        Python Fabric
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2019-12-20 15:35:01</span></span>
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h2 id="Python-Fabric模块详解"><a href="#Python-Fabric模块详解" class="headerlink" title="Python Fabric模块详解"></a>Python Fabric模块详解</h2><h3 id="什么是Fabric？"><a href="#什么是Fabric？" class="headerlink" title="什么是Fabric？"></a>什么是Fabric？</h3><p>简单介绍一下:</p>
+<p>​        Fabric是一个Python的库和命令行工具，用来提高基于SSH的应用部署和系统管理效率。</p>
+<p>再具体点介绍一下，Fabric是：</p>
+<ul>
+<li>一个让你通过<strong>命令行</strong>执行<strong>无参数Python函数</strong>的工具</li>
+<li>一个让通过 SSH 执行 Shell 命令更加 <strong>容易</strong> 、 <strong>更符合 Python 风格</strong> 的命令库（建立于一个更低层次的库）。</li>
+</ul>
+<h3 id="Fabric的安装"><a href="#Fabric的安装" class="headerlink" title="Fabric的安装"></a>Fabric的安装</h3><p>作为一个python的库，那简单粗暴中略带着些许优雅的<code>pip</code>一定是首选了。</p>
+<p>python2推荐安装方法：</p>
+<figure class="highlight plain"><figcaption><span>install fabric```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">如果是python3，相对应的库是fabric3。</span><br><span class="line"></span><br><span class="line">python3推荐安装方法：</span><br><span class="line"></span><br><span class="line">```pip3 install fabric3</span><br></pre></td></tr></table></figure>
+
+<p><strong>这里要注意一下，在同一个环境中，安装fabric3之前，需要先卸载fabric。</strong></p>
+<p>fabric是一个特殊的模块，不仅仅是一个python库，还是一个命令行工具，所以我们可以在命令行直接使用<code>fab</code>命令来调用。譬如：</p>
+<p>通过help对fab命令进行了解：</p>
+<figure class="highlight plain"><figcaption><span>-h```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">查看版本信息：</span><br><span class="line"></span><br><span class="line">```fab -V</span><br></pre></td></tr></table></figure>
+
+
+
+<p>当你使用<code>fab</code>命令时，fabric模块会自动默认寻找当前路径下的<strong>fabfile.py</strong>文件</p>
+<p>当然，<strong>fabfile.py</strong>只是一个默认选项，如果你想指定其他的文件，可以通过 <code>fab -f xx.py</code> 来指定。</p>
+<h3 id="常用参数"><a href="#常用参数" class="headerlink" title="常用参数"></a>常用参数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">-l  显示定义好的任务函数名</span><br><span class="line">-f  指定fab入口文件，默认入口文件名为fabfile.py.. 即指定fabfile文件</span><br><span class="line">-g  指定网关（中转）设备，即HOST逗号分隔要操作的主机, 比如堡垒机环境，填写堡垒机IP即可.</span><br><span class="line">-H  指定目标主机，多台主机用‘,’号分隔</span><br><span class="line">-p  远程账号的密码，fab执行时默认使用root账户</span><br><span class="line">-P  以异步并行方式运行多主机任务，默认为串行运行</span><br><span class="line">-R  指定role（角色），以角色名区分不同业务组设备</span><br><span class="line">-t  设置设备连接超时时间（秒）</span><br><span class="line">-T  设置远程主机命令执行超时时间（秒）</span><br><span class="line">-w  当命令执行失败，发出警告，而非默认中止任务。</span><br></pre></td></tr></table></figure>
+
+<p> 其他参数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">--``set``=KEY=VALUE,...     逗号分隔，设置环境变量</span><br><span class="line">--shortlist             简短打印可用命令</span><br><span class="line">-c PATH                 指定本地配置文件</span><br><span class="line">-D                      不加载用户known_hosts文件</span><br><span class="line">-i PATH                 指定私钥文件</span><br><span class="line">-k                      不加载来自~/.``ssh``下的私钥文件</span><br><span class="line">--port=PORT             指定SSH连接端口</span><br><span class="line">-R ROLES                根据角色操作，逗号分隔</span><br><span class="line">-s SHELL                指定新shell，默认是``&apos;/bin/bash -l -c&apos;</span><br><span class="line">--show=LEVELS           以逗号分隔的输出</span><br><span class="line">--``ssh``-config-path=PATH  SSH配置文件路径</span><br><span class="line">-T N                    设置远程命令超时时间，单位秒</span><br><span class="line">-u USER                 连接远程主机用户名</span><br><span class="line">-x HOSTS                以逗号分隔排除主机</span><br><span class="line">-z INT                  并发进程数</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="常用的API"><a href="#常用的API" class="headerlink" title="常用的API"></a>常用的API</h3><ul>
+<li>local ——执行本地命令</li>
+<li>lcd——切换本地目录</li>
+<li>cd——切换远程目录</li>
+<li>run——执行远程命令</li>
+<li>sudo——以sudo权限执行远程命令</li>
+<li>put——上传本地文件到远程主机</li>
+<li>get——从远程主机下载文件到本地</li>
+<li>prompt——获取用户输入信息</li>
+<li>confirm——获取提示信息确认</li>
+<li>reboot——重启远程主机， reboot()</li>
+<li>@task——装饰器，装饰的函数为fab可以调用的</li>
+<li>@runs_once——装饰器，标识的函数只会执行一次</li>
+</ul>
+<hr>
+<h3 id="fabric全局属性设定"><a href="#fabric全局属性设定" class="headerlink" title="fabric全局属性设定"></a>fabric全局属性设定</h3><ul>
+<li><p>env.exclude_hosts——排除指定主机，同样以列表表示</p>
+</li>
+<li><p>env.port——定义目标主机端口，默认22</p>
+</li>
+<li><p>env.user——定义用户名</p>
+</li>
+<li><p>env.password——定义密码</p>
+</li>
+<li><p>env.passwords——与上一致，但是区别不同主机不同配置的应用情景。例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- env.getway——定义网关</span><br><span class="line"></span><br><span class="line">- env.deploy_release_dir——自定义全局变量</span><br><span class="line"></span><br><span class="line">- env.roledefs——定义角色分组</span><br><span class="line"></span><br><span class="line">------</span><br><span class="line"></span><br><span class="line">### fabric装饰器</span><br><span class="line"></span><br><span class="line">#### @hosts</span><br><span class="line"></span><br><span class="line">指定被装饰的函数执行在哪台主机或哪些主机列表上。</span><br><span class="line"></span><br><span class="line">**hosts** 接受host的参数列表 @hosts(&apos;h1&apos;,&apos;h2&apos;),或者一个可迭代对象 @hosts([&apos;h1&apos;, &apos;h2&apos;])。</span><br><span class="line"></span><br><span class="line">h1可以是一个IP，也可以是**user@host**</span><br><span class="line"></span><br><span class="line">这个装饰器是设置函数的```.hosts```属性，在执行函数之前读取。</span><br><span class="line"></span><br><span class="line">#### @paralle</span><br><span class="line"></span><br><span class="line">fabric.decorators.parallel</span><br><span class="line"></span><br><span class="line">强制被装饰的函数并行执行，而非同步执行。</span><br><span class="line"></span><br><span class="line">优先级:高于全局变量```env.parallel```,高于装饰器```@serial</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h4 id="roles"><a href="#roles" class="headerlink" title="@roles"></a>@roles</h4><p>定义（服务器）“角色”名，然后用于寻找对应的主机列表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">env.roledefs.update(&#123;</span><br><span class="line">    &apos;webserver&apos;: [&apos;www1&apos;, &apos;www2&apos;],</span><br><span class="line">    &apos;dbserver&apos;: [&apos;db1&apos;]</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">@roles(&apos;webserver&apos;, &apos;dbserver&apos;)</span><br><span class="line">def my_func():</span><br><span class="line">    pass</span><br></pre></td></tr></table></figure>
+
+<p><strong>roles</strong>接受参数列表，或单个的可迭代对象作为参数</p>
+<p>不考虑控制台参数覆盖的话，<code>my_func</code> 将会在 <code>webserver</code> 和 <code>dbserver</code> 角色对应的主机列表上执行。</p>
+<h4 id="runs-once"><a href="#runs-once" class="headerlink" title="@runs_once"></a>@runs_once</h4><p>组织函数多次执行的装饰器。</p>
+<p>通过保存内部状态，使用该装饰器可以保证函数在每个Python解释器中只运行一次。任何被该装饰器装饰的函数在第二次，第三次…..第n次执行时都会静默失败，并返回初次运行的结果。</p>
+<p>runs_once 无法和任务并行执行同时生效。</p>
+<h4 id="serial"><a href="#serial" class="headerlink" title="@serial"></a>@serial</h4><p>强制被装饰的函数顺序执行，不并行执行。</p>
+<p>该装饰器效果的优先级高于全局变量<code>env.parallel</code></p>
+<p>若同时被 <strong>serial</strong> 和 <strong>parallel</strong> 装饰器装饰，<strong>parallel</strong> 优先级更高。</p>
+<h3 id="判断模块："><a href="#判断模块：" class="headerlink" title="判断模块："></a>判断模块：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; from fabric.contrib.console import confirm</span><br><span class="line">&gt;&gt;&gt; content = confirm(&quot;continue[Y/N]?&quot;)</span><br><span class="line">continue[Y/N]? [Y/n] y</span><br><span class="line">&gt;&gt;&gt; content</span><br><span class="line">True</span><br><span class="line">&gt;&gt;&gt; content = confirm(&quot;continue[Y/N]?&quot;)</span><br><span class="line">continue[Y/N]? [Y/n] n</span><br><span class="line">&gt;&gt;&gt; content</span><br><span class="line">False</span><br></pre></td></tr></table></figure>
+
+<h3 id="颜色模块："><a href="#颜色模块：" class="headerlink" title="颜色模块："></a>颜色模块：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; from fabric.colours import *</span><br></pre></td></tr></table></figure>
+
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = ""
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

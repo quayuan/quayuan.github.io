@@ -141,9 +141,9 @@
 <p><strong>这里要注意一下，在同一个环境中，安装fabric3之前，需要先卸载fabric。</strong></p>
 <p>fabric是一个特殊的模块，不仅仅是一个python库，还是一个命令行工具，所以我们可以在命令行直接使用<code>fab</code>命令来调用。譬如：</p>
 <p>通过help对fab命令进行了解：</p>
-<p>​    <code>fab -h</code></p>
+<p><strong>fab -h</strong></p>
 <p>查看版本信息：</p>
-<p>​    <code>fab -V</code></p>
+<p><strong>fab -V</strong></p>
 <p>当你使用<code>fab</code>命令时，fabric模块会自动默认寻找当前路径下的<strong>fabfile.py</strong>文件</p>
 <p>当然，<strong>fabfile.py</strong>只是一个默认选项，如果你想指定其他的文件，可以通过 <code>fab -f xx.py</code> 来指定。</p>
 <h3 id="常用参数"><a href="#常用参数" class="headerlink" title="常用参数"></a>常用参数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">-l  显示定义好的任务函数名</span><br><span class="line">-f  指定fab入口文件，默认入口文件名为fabfile.py.. 即指定fabfile文件</span><br><span class="line">-g  指定网关（中转）设备，即HOST逗号分隔要操作的主机, 比如堡垒机环境，填写堡垒机IP即可.</span><br><span class="line">-H  指定目标主机，多台主机用‘,’号分隔</span><br><span class="line">-p  远程账号的密码，fab执行时默认使用root账户</span><br><span class="line">-P  以异步并行方式运行多主机任务，默认为串行运行</span><br><span class="line">-R  指定role（角色），以角色名区分不同业务组设备</span><br><span class="line">-t  设置设备连接超时时间（秒）</span><br><span class="line">-T  设置远程主机命令执行超时时间（秒）</span><br><span class="line">-w  当命令执行失败，发出警告，而非默认中止任务。</span><br></pre></td></tr></table></figure>
@@ -177,7 +177,9 @@
 <li><p>env.password——定义密码</p>
 </li>
 <li><p>env.passwords——与上一致，但是区别不同主机不同配置的应用情景。例如：</p>
-<p>​    <code>env.passwords = {&#39;root@x.x.x.x:22&#39; : &#39;1234&#39;,&#39;root@x.x.x.x:22&#39; : &#39;5678&#39;}</code></p>
+<ul>
+<li>env.passwords = {‘root@x.x.x.x:22’ : ‘1234’,‘root@x.x.x.x:22’ : ‘5678’}</li>
+</ul>
 </li>
 <li><p>env.getway——定义网关</p>
 </li>

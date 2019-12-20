@@ -82,7 +82,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Python-Fabric模块详解"><span class="toc-text">Python Fabric模块详解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是Fabric？"><span class="toc-text">什么是Fabric？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Fabric的安装"><span class="toc-text">Fabric的安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#常用参数"><span class="toc-text">常用参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#常用的API"><span class="toc-text">常用的API</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#fabric全局属性设定"><span class="toc-text">fabric全局属性设定</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#roles"><span class="toc-text">@roles</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#runs-once"><span class="toc-text">@runs_once</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#serial"><span class="toc-text">@serial</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#判断模块："><span class="toc-text">判断模块：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#颜色模块："><span class="toc-text">颜色模块：</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Python-Fabric模块详解"><span class="toc-text">Python Fabric模块详解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是Fabric？"><span class="toc-text">什么是Fabric？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Fabric的安装"><span class="toc-text">Fabric的安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#常用参数"><span class="toc-text">常用参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#常用的API"><span class="toc-text">常用的API</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#fabric全局属性设定"><span class="toc-text">fabric全局属性设定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#fabric装饰器"><span class="toc-text">fabric装饰器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#hosts"><span class="toc-text">@hosts</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#paralle"><span class="toc-text">@paralle</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#roles"><span class="toc-text">@roles</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#runs-once"><span class="toc-text">@runs_once</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#serial"><span class="toc-text">@serial</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#判断模块："><span class="toc-text">判断模块：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#颜色模块："><span class="toc-text">颜色模块：</span></a></li></ol></li></ol>
 </div>
     
 </div>
@@ -141,10 +141,9 @@
 <p><strong>这里要注意一下，在同一个环境中，安装fabric3之前，需要先卸载fabric。</strong></p>
 <p>fabric是一个特殊的模块，不仅仅是一个python库，还是一个命令行工具，所以我们可以在命令行直接使用<code>fab</code>命令来调用。譬如：</p>
 <p>通过help对fab命令进行了解：</p>
-<figure class="highlight plain"><figcaption><span>-h```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">查看版本信息：</span><br><span class="line"></span><br><span class="line">```fab -V</span><br></pre></td></tr></table></figure>
-
-
-
+<p>​    <code>fab -h</code></p>
+<p>查看版本信息：</p>
+<p>​    <code>fab -V</code></p>
 <p>当你使用<code>fab</code>命令时，fabric模块会自动默认寻找当前路径下的<strong>fabfile.py</strong>文件</p>
 <p>当然，<strong>fabfile.py</strong>只是一个默认选项，如果你想指定其他的文件，可以通过 <code>fab -f xx.py</code> 来指定。</p>
 <h3 id="常用参数"><a href="#常用参数" class="headerlink" title="常用参数"></a>常用参数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">-l  显示定义好的任务函数名</span><br><span class="line">-f  指定fab入口文件，默认入口文件名为fabfile.py.. 即指定fabfile文件</span><br><span class="line">-g  指定网关（中转）设备，即HOST逗号分隔要操作的主机, 比如堡垒机环境，填写堡垒机IP即可.</span><br><span class="line">-H  指定目标主机，多台主机用‘,’号分隔</span><br><span class="line">-p  远程账号的密码，fab执行时默认使用root账户</span><br><span class="line">-P  以异步并行方式运行多主机任务，默认为串行运行</span><br><span class="line">-R  指定role（角色），以角色名区分不同业务组设备</span><br><span class="line">-t  设置设备连接超时时间（秒）</span><br><span class="line">-T  设置远程主机命令执行超时时间（秒）</span><br><span class="line">-w  当命令执行失败，发出警告，而非默认中止任务。</span><br></pre></td></tr></table></figure>
@@ -178,10 +177,23 @@
 <li><p>env.password——定义密码</p>
 </li>
 <li><p>env.passwords——与上一致，但是区别不同主机不同配置的应用情景。例如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- env.getway——定义网关</span><br><span class="line"></span><br><span class="line">- env.deploy_release_dir——自定义全局变量</span><br><span class="line"></span><br><span class="line">- env.roledefs——定义角色分组</span><br><span class="line"></span><br><span class="line">------</span><br><span class="line"></span><br><span class="line">### fabric装饰器</span><br><span class="line"></span><br><span class="line">#### @hosts</span><br><span class="line"></span><br><span class="line">指定被装饰的函数执行在哪台主机或哪些主机列表上。</span><br><span class="line"></span><br><span class="line">**hosts** 接受host的参数列表 @hosts(&apos;h1&apos;,&apos;h2&apos;),或者一个可迭代对象 @hosts([&apos;h1&apos;, &apos;h2&apos;])。</span><br><span class="line"></span><br><span class="line">h1可以是一个IP，也可以是**user@host**</span><br><span class="line"></span><br><span class="line">这个装饰器是设置函数的```.hosts```属性，在执行函数之前读取。</span><br><span class="line"></span><br><span class="line">#### @paralle</span><br><span class="line"></span><br><span class="line">fabric.decorators.parallel</span><br><span class="line"></span><br><span class="line">强制被装饰的函数并行执行，而非同步执行。</span><br><span class="line"></span><br><span class="line">优先级:高于全局变量```env.parallel```,高于装饰器```@serial</span><br></pre></td></tr></table></figure>
-
+<p>​    <code>env.passwords = {&#39;root@x.x.x.x:22&#39; : &#39;1234&#39;,&#39;root@x.x.x.x:22&#39; : &#39;5678&#39;}</code></p>
+</li>
+<li><p>env.getway——定义网关</p>
+</li>
+<li><p>env.deploy_release_dir——自定义全局变量</p>
+</li>
+<li><p>env.roledefs——定义角色分组</p>
 </li>
 </ul>
+<hr>
+<h3 id="fabric装饰器"><a href="#fabric装饰器" class="headerlink" title="fabric装饰器"></a>fabric装饰器</h3><h4 id="hosts"><a href="#hosts" class="headerlink" title="@hosts"></a>@hosts</h4><p>指定被装饰的函数执行在哪台主机或哪些主机列表上。</p>
+<p><strong>hosts</strong> 接受host的参数列表 @hosts(‘h1’,’h2’),或者一个可迭代对象 @hosts([‘h1’, ‘h2’])。</p>
+<p>h1可以是一个IP，也可以是<strong>user@host</strong></p>
+<p>这个装饰器是设置函数的<code>.hosts</code>属性，在执行函数之前读取。</p>
+<h4 id="paralle"><a href="#paralle" class="headerlink" title="@paralle"></a>@paralle</h4><p>fabric.decorators.parallel</p>
+<p>强制被装饰的函数并行执行，而非同步执行。</p>
+<p>优先级:高于全局变量<code>env.parallel</code>,高于装饰器<code>@serial</code></p>
 <h4 id="roles"><a href="#roles" class="headerlink" title="@roles"></a>@roles</h4><p>定义（服务器）“角色”名，然后用于寻找对应的主机列表</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">env.roledefs.update(&#123;</span><br><span class="line">    &apos;webserver&apos;: [&apos;www1&apos;, &apos;www2&apos;],</span><br><span class="line">    &apos;dbserver&apos;: [&apos;db1&apos;]</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">@roles(&apos;webserver&apos;, &apos;dbserver&apos;)</span><br><span class="line">def my_func():</span><br><span class="line">    pass</span><br></pre></td></tr></table></figure>
 

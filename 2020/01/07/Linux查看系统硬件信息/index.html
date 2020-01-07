@@ -11,7 +11,7 @@
 
     <title>
         
-        
+        Linux查看系统硬件信息 - undefined
         
     </title>
 
@@ -65,7 +65,7 @@
                     <span>TAGS</span>
                 </a>
             </li>
-            <li  class=active >
+            <li >
                 <a href="/archives">
                     <i class="iconfont icon-guidang2"></i>
                     <span>ARCHIVES</span>
@@ -80,6 +80,10 @@
             
         </ul>
     </div>
+    
+        <div id="toc" class="toc-article">
+    
+</div>
     
 </div>
 
@@ -107,75 +111,72 @@
         
 
 
-<!-- 归档列表 -->
+<div class="post-container">
+    <div class="post-title">
+        Linux查看系统硬件信息
+    </div>
 
-<div class="archives-container">
-
-<div class="one-tag-list">
-                <span class="fa fa-calendar-times-o listing-seperator" id="2020">
-                    <span class="tag-text">2020</span>
-                </span>
-    <ul>
+    <div class="post-meta">
+        <span class="attr">Post：<span>2020-01-07 16:06:51</span></span>
         
-        <!-- <li class="listing-item">
-        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-        </li> -->
-        <li >
-            <span>01-07</span>
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/2020/01/07/Linux查看系统硬件信息/">
-                        <span>
-                            Linux查看系统硬件信息
-                        </span>
-            </a>
-            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-        </li>
-        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p><strong>Linux查看系统硬件信息命令</strong></p>
+<ul>
+<li><p>查看磁盘类型（是否SSD）</p>
+<p><code>cat /sys/block/sda/queue/rotational</code></p>
+</li>
+<li><ul>
+<li>code:0 SSD盘</li>
+<li>code:1 SATA盘</li>
+</ul>
+</li>
+<li><p>查看物理CPU个数</p>
+<p><code>cat /proc/cpuinfo| grep &quot;physical id&quot;| sort| uniq| wc -l</code></p>
+</li>
+<li><p>查看每个物理CPU中core的个数（即核数）</p>
+<p><code>cat /proc/cpuinfo| grep &quot;cpu cores&quot;| uniq</code></p>
+</li>
+<li><p>查看逻辑CPU的个数</p>
+<p><code>cat /proc/cpuinfo| grep &quot;processor&quot;| wc -l</code></p>
+</li>
+<li><p>查看CPU信息（型号）</p>
+<p><code>cat /proc/cpuinfo | grep name | cut -f2 -d: | uniq -c</code></p>
+</li>
+<li><p>查看内存大小</p>
+<p><code>cat /proc/meminfo |grep MemTotal |cut -d &#39;:&#39; -f 2 |cut -d &#39; &#39; -f 8</code></p>
+</li>
+<li><p>查看系统磁盘个数及大小</p>
+<p><code>fdisk -l 2&gt; /dev/null | grep &quot;^Disk /dev/[sh]d[a-z]&quot; |cut -d &#39;,&#39; -f 1 | sort</code></p>
+</li>
+<li><p>查看网卡个数及物理型号</p>
+<p><code>lspci |grep Ethernet</code></p>
+</li>
+<li><p>查看网卡的速率</p>
+<p><code>ethtool eth0</code></p>
+</li>
+<li><p>查看Linux内核版本命令</p>
+<p><code>cat /proc/version</code></p>
+</li>
+<li><p>查看Linux系统版本的命令</p>
+<p><code>lsb_release -a or cat /etc/issue</code></p>
+</li>
+</ul>
 
-    </ul>
-</div>
-
-<div class="one-tag-list">
-                <span class="fa fa-calendar-times-o listing-seperator" id="2019">
-                    <span class="tag-text">2019</span>
-                </span>
-    <ul>
         
-        <!-- <li class="listing-item">
-        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-        </li> -->
-        <li >
-            <span>10-18</span>
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/2019/10/18/Hello-MyBlog/">
-                        <span>
-                            Hello, MyBlog
-                        </span>
-            </a>
-            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-        </li>
-        
-        <!-- <li class="listing-item">
-        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-        </li> -->
-        <li >
-            <span>10-18</span>
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/2019/10/18/hello-world/">
-                        <span>
-                            Hello World
-                        </span>
-            </a>
-            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-        </li>
-        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
 
-    </ul>
-</div>
+        <div id="lv-container">
+        </div>
 
+    </div>
 </div>
 
     </div>
@@ -216,7 +217,7 @@
     // We expose some of the variables needed by the front end
     window.hexo_search_path = ""
     window.hexo_root = "/"
-    window.isPost = false
+    window.isPost = true
 </script>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 <script src="/js/index.js"></script>
